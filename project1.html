@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DecodeLabs Project 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mocha: #A5956F;
+      --blue: #A0D4E0;
+      --grey: #F2F0EA;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: 'Roboto', sans-serif; line-height:1.6; }
+    
+    header { background: var(--mocha); color:white; padding:1rem; }
+    nav { display:flex; justify-content:space-between; align-items:center; }
+    nav a { color:white; margin:0 0.5rem; text-decoration:none; }
+    .menu-toggle { display:none; cursor:pointer; }
+    
+    .hero { background: var(--blue); padding:3rem 1rem; text-align:center; }
+    .hero h1 { font-family:'Montserrat', sans-serif; font-size:clamp(1.5rem, 4vw, 3rem); margin-bottom:1rem; }
+    .hero button { background: var(--mocha); color:white; border:none; padding:0.75rem 1.5rem; border-radius:5px; cursor:pointer; }
+    
+    .layout { display:grid; grid-template-columns: 1fr; gap:1rem; padding:1rem; }
+    .sidebar { background: var(--mocha); color:white; padding:1rem; border-radius:8px; }
+    .grid { display:grid; gap:1rem; }
+    .card { background: var(--grey); padding:1rem; border-radius:8px; }
+    
+    footer { background: var(--mocha); color:white; text-align:center; padding:1rem; }
+    
+    /* Responsive Layout */
+    @media (min-width:768px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width:1024px) {
+      .layout { grid-template-columns: 250px 1fr; }
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    /* Mobile Nav */
+    @media (max-width:600px) {
+      nav div.links { display:none; flex-direction:column; }
+      nav div.links.active { display:flex; }
+      .menu-toggle { display:block; }
+      .sidebar { display:none; } /* Hide sidebar on mobile */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div>DecodeLabs</div>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation menu">☰</button>
+      <div class="links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Build the Future</h1>
+    <p>Responsive design crafted with HTML, CSS, and JavaScript.</p>
+    <button onclick="alert('Getting Started!')">Get Started</button>
+  </section>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Sidebar</h2>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </aside>
+
+    <main class="grid">
+      <div class="card">Content Block 1</div>
+      <div class="card">Content Block 2</div>
+      <div class="card">Content Block 3</div>
+      <div class="card">Content Block 4</div>
+      <div class="card">Content Block 5</div>
+      <div class="card">Content Block 6</div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 DecodeLabs Internship | Greater Lucknow, India</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.links');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        links.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>
